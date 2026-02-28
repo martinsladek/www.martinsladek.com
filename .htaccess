@@ -1,0 +1,91 @@
+DirectoryIndex index.php index.html index.htm
+#AddType application/x-httpd-php .exe
+#ErrorDocument 404 /404.php
+#ErrorDocument 404 /pics/404.gif
+#Redirect permanent / http://www.fav.cz/info.html
+
+Redirect permanent /caller http://www.martinsladek.com/square/caller
+
+Options +FollowSymlinks
+
+# Rewriting games ...
+RewriteEngine on
+
+# index.exe
+# RewriteRule ^$ /index.exe [R=301,L]
+RewriteRule ^index\.exe$ / [R=301,L]
+RewriteRule ^h4x0r$ /intro_h4x0r.html [R=301,L]
+
+RewriteRule ^icons\.html$ /references.html [R=301,L]
+RewriteRule ^icons_cz\.html$ /references_cz.html [R=301,L]
+
+RewriteRule ^tech\.html$ /technology.html [R=301,L]
+RewriteRule ^tech_cz\.html$ /technology_cz.html [R=301,L]
+
+
+# Nebo muzeme prepisovat na Default.asp
+# RewriteRule ^$ /Default.asp [R=301,L]
+# rewriterule ^Default\.asp$ index.php
+
+#rewriterule ^([^/]*)\.exe$ $1.php
+#rewriterule ^([^/]*)\.html$ $1.php
+
+#AddType application/x-httpd-php73 .php
+#AddType application/x-httpd-php .php
+
+
+
+
+
+Options +FollowSymLinks
+RewriteEngine On
+
+###############################################
+# OLD -> NEW (CZ)
+###############################################
+
+Redirect 301 /about_cz.html /cz/about.html
+Redirect 301 /services_cz.html /cz/services.html
+Redirect 301 /projects_cz.html /cz/projects.html
+Redirect 301 /technology_cz.html /cz/technology.html
+Redirect 301 /references_cz.html /cz/projects.html
+Redirect 301 /personal_cz.html /cz/about.html
+Redirect 301 /contact_cz.html /cz/contact.html
+Redirect 301 /sitemap_cz.html /
+
+###############################################
+# OLD -> NEW (EN)
+###############################################
+
+Redirect 301 /en/index.html /
+#Redirect 301 /en/index.html /index.html
+Redirect 301 /about.html /en/about.html
+Redirect 301 /services.html /en/services.html
+Redirect 301 /projects.html /en/projects.html
+Redirect 301 /technology.html /en/technology.html
+Redirect 301 /references.html /en/projects.html
+Redirect 301 /personal.html /en/about.html
+Redirect 301 /contact.html /en/contact.html
+Redirect 301 /sitemap.html /
+
+# CV
+Redirect 301 /cv/index.html /en/cv.html
+Redirect 301 /cv/index_cz.html /cz/cv.html
+
+###############################################
+# SQUARE -> PERSONAL WEBSITE (placeholder)
+###############################################
+
+#Redirect 301 /square/index.html https://osobniweb.tld/square/
+#Redirect 301 /square/choreography/ https://osobniweb.tld/square/choreography/
+#Redirect 301 /square/caller/ https://osobniweb.tld/square/caller/
+
+###############################################
+# ROOT HANDLING
+###############################################
+# /index.html = EN homepage
+# /en/index.html = same content
+# No redirect needed unless you want:
+# Redirect 301 / /en/index.html
+###############################################
+

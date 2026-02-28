@@ -1,0 +1,50 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+###############################################
+# OLD -> NEW (CZ)
+###############################################
+
+Redirect 301 /about_cz.html /cz/about.html
+Redirect 301 /services_cz.html /cz/services.html
+Redirect 301 /projects_cz.html /cz/projects.html
+Redirect 301 /technology_cz.html /cz/technology.html
+Redirect 301 /references_cz.html /cz/projects.html
+Redirect 301 /personal_cz.html /cz/about.html
+Redirect 301 /contact_cz.html /cz/contact.html
+
+###############################################
+# OLD -> NEW (EN)
+###############################################
+
+Redirect 301 /en/index.html /
+#Redirect 301 /en/index.html /index.html
+Redirect 301 /about.html /en/about.html
+Redirect 301 /services.html /en/services.html
+Redirect 301 /projects.html /en/projects.html
+Redirect 301 /technology.html /en/technology.html
+Redirect 301 /references.html /en/projects.html
+Redirect 301 /personal.html /en/about.html
+Redirect 301 /contact.html /en/contact.html
+
+# CV
+Redirect 301 /cv/index.html /en/cv.html
+Redirect 301 /cv/index_cz.html /cz/cv.html
+
+###############################################
+# SQUARE -> PERSONAL WEBSITE (placeholder)
+###############################################
+
+#Redirect 301 /square/index.html https://osobniweb.tld/square/
+#Redirect 301 /square/choreography/ https://osobniweb.tld/square/choreography/
+#Redirect 301 /square/caller/ https://osobniweb.tld/square/caller/
+
+###############################################
+# ROOT HANDLING
+###############################################
+# /index.html = EN homepage
+# /en/index.html = same content
+# No redirect needed unless you want:
+# Redirect 301 / /en/index.html
+###############################################
+

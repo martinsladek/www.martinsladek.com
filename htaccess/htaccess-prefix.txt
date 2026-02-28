@@ -1,0 +1,39 @@
+DirectoryIndex index.php index.html index.htm
+#AddType application/x-httpd-php .exe
+#ErrorDocument 404 /404.php
+#ErrorDocument 404 /pics/404.gif
+#Redirect permanent / http://www.fav.cz/info.html
+
+Redirect permanent /caller http://www.martinsladek.com/square/caller
+
+Options +FollowSymlinks
+
+# Rewriting games ...
+RewriteEngine on
+
+# index.exe
+# RewriteRule ^$ /index.exe [R=301,L]
+RewriteRule ^index\.exe$ / [R=301,L]
+RewriteRule ^h4x0r$ /intro_h4x0r.html [R=301,L]
+
+RewriteRule ^icons\.html$ /references.html [R=301,L]
+RewriteRule ^icons_cz\.html$ /references_cz.html [R=301,L]
+
+RewriteRule ^tech\.html$ /technology.html [R=301,L]
+RewriteRule ^tech_cz\.html$ /technology_cz.html [R=301,L]
+
+
+# Nebo muzeme prepisovat na Default.asp
+# RewriteRule ^$ /Default.asp [R=301,L]
+# rewriterule ^Default\.asp$ index.php
+
+#rewriterule ^([^/]*)\.exe$ $1.php
+#rewriterule ^([^/]*)\.html$ $1.php
+
+#AddType application/x-httpd-php73 .php
+#AddType application/x-httpd-php .php
+
+
+
+
+

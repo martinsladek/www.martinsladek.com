@@ -1,0 +1,441 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #F9FAFB;
+    color: #111827;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.header {
+    background: white;
+    border-bottom: 1px solid #E5E7EB;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #111827;
+    font-weight: 500;
+}
+
+/* CTA BUTTON */
+.btn {
+    padding: 10px 18px;
+    border-radius: 6px;
+    border: 1px solid #111827;
+}
+
+.btn.primary {
+    background: #10B981;
+    color: white;
+    border: none;
+}
+
+.hero {
+    padding: 80px 0;
+    background: white;
+}
+
+.hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-text h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.card, .project {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #E5E7EB;
+}
+
+.about-inner {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+}
+
+input, textarea {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #D1D5DB;
+}
+
+/*
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    background: #111827;
+    color: white;
+}
+*/
+
+/* odlehceny footer */
+
+.footer {
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 40px;
+    background: #F3F4F6;
+    color: #4B5563;
+    border-top: 1px solid #E5E7EB;
+    font-size: 14px;
+}
+
+body.dark .footer {
+    background: #1F2937;
+    color: #D1D5DB;
+    border-top: 1px solid #374151;
+}
+
+
+/* images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+}
+
+.project img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px 6px 0 0;
+}
+
+.about-img img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.hero-img img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    object-fit: cover;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+    .hero-inner,
+    .about-inner,
+    .contact-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    nav ul {
+        gap: 15px;
+    }
+
+    .hero-img img {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .hero-text h1 {
+        font-size: 32px;
+    }
+
+    .about-img img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* dark mode */
+body.dark {
+    background: #111827;
+    color: #F9FAFB;
+}
+
+body.dark .header {
+    background: #1F2937;
+    border-bottom-color: #374151;
+}
+
+body.dark .card,
+body.dark .project,
+body.dark .contact-form input,
+body.dark .contact-form textarea {
+    background: #1F2937;
+    border-color: #374151;
+    color: #F9FAFB;
+}
+
+body.dark .btn {
+    border-color: #F9FAFB;
+}
+
+body.dark .btn.primary {
+    background: #10B981;
+}
+
+/* hero dark */
+body.dark .hero {
+    background: #1F2937;
+}
+
+body.dark .hero-text h1,
+body.dark .hero-text p {
+    color: #F9FAFB;
+}
+
+/* nav dark */
+body.dark nav a {
+    color: #F9FAFB;
+}
+
+body.dark nav a.btn {
+    border-color: #F9FAFB;
+    color: #F9FAFB;
+}
+
+body.dark nav a.btn:hover {
+    background: #374151;
+}
+
+/* active menu item (underline) */
+nav a.active {
+    color: inherit;
+    font-weight: 600;
+    border-bottom: 2px solid currentColor;
+    padding-bottom: 2px;
+}
+
+body.dark nav a.active {
+    color: #F9FAFB;
+}
+
+/* dark mode button */
+.btn.small {
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+}
+
+#darkToggle {
+    background: #F3F4F6;
+    color: #111827;
+    border: 1px solid #D1D5DB;
+}
+
+#darkToggle:hover {
+    background: #E5E7EB;
+}
+
+body.dark #darkToggle {
+    background: #374151;
+    color: #F9FAFB;
+    border: 1px solid #4B5563;
+}
+
+body.dark #darkToggle:hover {
+    background: #4B5563;
+}
+
+/* card hover */
+.card {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+body.dark .card:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* CTA section */
+.cta {
+    text-align: center;
+    padding: 80px 0;
+    background: #F3F4F6;
+}
+
+body.dark .cta {
+    background: #1F2937;
+}
+
+/* FINAL CTA ACTIVE FIX */
+nav li a.btn.active {
+    font-weight: 600 !important;
+    border-bottom: none !important;
+    padding-bottom: 10px !important;
+    background: #E5E7EB;
+    color: #111827;
+    border-color: #D1D5DB;
+}
+
+body.dark nav li a.btn.active {
+    font-weight: 600 !important;
+    border-bottom: none !important;
+    padding-bottom: 10px !important;
+    background: #374151;
+    color: #F9FAFB;
+    border-color: #4B5563;
+}
+
+/* ZJEMNĚNÉ CTA BUTTONY – LIGHT MODE */
+.btn.primary {
+    background: #4ADE80; /* jemnější zelená */
+    color: white;
+    border: none;
+    transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn.primary:hover {
+    background: #22C55E; /* o chlup tmavší */
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.35); /* jemný odlesk */
+}
+
+/* DARK MODE */
+body.dark .btn.primary {
+    background: #16A34A; /* tlumenější */
+    color: white;
+}
+
+body.dark .btn.primary:hover {
+    background: #22C55E;
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.45);
+}
+
+/* language switch */
+.lang-switch {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.lang-switch img {
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.lang-switch img:hover {
+    opacity: 1;
+}
+
+/* sticky footer */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+footer.footer {
+    margin-top: auto;
+}
+
+/* nice CTA work with me */
+/* Výchozí stav – jemný stín */
+.btn.primary {
+    background: #4ADE80;
+    color: white;
+    border: none;
+    transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Hover – silnější stín + lehké nadzvednutí */
+.btn.primary:hover {
+    background: #22C55E;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transform: translateY(-3px);
+}
+
+/* DARK MODE */
+body.dark .btn.primary {
+    background: #16A34A;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+body.dark .btn.primary:hover {
+    background: #22C55E;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.55);
+    transform: translateY(-3px);
+}
+
+.btn {
+    display: inline-block;
+}
+
+.btn.primary {
+    display: inline-block;
+}
