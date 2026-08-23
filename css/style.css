@@ -104,6 +104,11 @@ nav a {
     max-width: 500px;
 }
 
+/* mailto/obrázek e-mailu: bez inline-block by display:block u img natáhl odkaz na celý řádek */
+.contact-info a {
+    display: inline-block;
+}
+
 input, textarea {
     padding: 12px;
     border-radius: 6px;
