@@ -21,26 +21,62 @@ body {
 
 .nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
+    align-items: stretch;
+    padding: 0;
 }
 
 .logo {
     font-weight: bold;
     font-size: 20px;
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+nav {
+    display: flex;
+    align-items: stretch;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 25px;
+    align-items: stretch;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+}
+
+nav li:not(.lang-switch) {
+    display: flex;
+}
+
+nav li:not(.lang-switch) > a {
+    display: flex;
+    align-items: center;
+    padding: 20px 12px;
+    box-sizing: border-box;
 }
 
 nav a {
     text-decoration: none;
     color: #111827;
     font-weight: 500;
+}
+
+#darkToggle {
+    align-self: center;
+    margin: 12px 0;
+}
+
+.header-tools {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1 1 0;
+    min-width: 0;
 }
 
 /* CTA BUTTON */
@@ -200,8 +236,20 @@ body.dark section.hero .hero-img:hover img {
         grid-template-columns: 1fr;
     }
 
+    nav {
+        min-width: 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
     nav ul {
-        gap: 15px;
+        flex-wrap: nowrap;
+    }
+
+    nav li:not(.lang-switch) > a {
+        padding: 20px 8px;
+        white-space: nowrap;
+        flex-shrink: 0;
     }
 
     .hero-img img {
@@ -211,12 +259,52 @@ body.dark section.hero .hero-img:hover img {
 
 @media (max-width: 600px) {
     .nav {
-        flex-direction: column;
-        gap: 10px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        column-gap: 10px;
+        align-items: stretch;
     }
 
     .logo {
+        grid-column: 1;
+        grid-row: 1;
         font-size: 18px;
+        padding: 12px 0;
+        flex: unset;
+    }
+
+    .header-tools {
+        grid-column: 2;
+        grid-row: 1;
+        flex: unset;
+    }
+
+    .lang-switch {
+        padding: 0 4px;
+    }
+
+    #darkToggle {
+        margin: 10px 0;
+    }
+
+    nav {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        min-width: 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
+    }
+
+    nav ul {
+        flex-wrap: nowrap;
+        width: max-content;
+    }
+
+    nav li:not(.lang-switch) > a {
+        padding: 12px 16px;
+        white-space: nowrap;
+        flex-shrink: 0;
     }
 
     .hero-text h1 {
@@ -281,12 +369,14 @@ body.dark nav a.btn:hover {
     background: #374151;
 }
 
-/* active menu item (underline) */
+/* active menu item: bold + underline (underline stays — bold alone is weak on phones) */
 nav a.active {
     color: inherit;
-    font-weight: 600;
-    border-bottom: 2px solid currentColor;
-    padding-bottom: 2px;
+    font-weight: 700;
+}
+
+nav li:not(.lang-switch) > a.active {
+    box-shadow: inset 0 -2px 0 currentColor;
 }
 
 body.dark nav a.active {
@@ -393,6 +483,7 @@ body.dark .btn.primary:hover {
     display: flex;
     gap: 10px;
     align-items: center;
+    padding: 0 12px 0 8px;
 }
 
 .lang-switch img {
