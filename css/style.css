@@ -145,6 +145,10 @@ nav a {
     display: inline-block;
 }
 
+.contact-info a img {
+    border-radius: 0;
+}
+
 input, textarea {
     padding: 12px;
     border-radius: 6px;
