@@ -88,9 +88,9 @@ $pscp = Find-Pscp
 $items = @(Get-ChildItem -LiteralPath $StageDir -Force)
 if ($items.Count -eq 0) { throw "staging tree is empty" }
 
+$remoteRoot = $cfg.RemoteSpec.TrimEnd("/") + "/"
 foreach ($item in $items) {
-    $dest = $cfg.RemoteSpec.TrimEnd("/") + "/" + $item.Name
-    & $pscp -batch -r -i $cfg.DeployPpk $item.FullName $dest
+    & $pscp -batch -r -i $cfg.DeployPpk $item.FullName $remoteRoot
     if ($LASTEXITCODE -ne 0) {
         throw "pscp failed for $($item.Name) (exit $LASTEXITCODE)"
     }
