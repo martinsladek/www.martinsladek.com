@@ -20,6 +20,6 @@ $rows = @(foreach ($key in Get-ChildItem -LiteralPath $base) {
         host   = [string]$hostName
         hasPpk = -not [string]::IsNullOrWhiteSpace($ppk)
     }
-}
+})
 
 ConvertTo-Json -InputObject @($rows) -Compress
