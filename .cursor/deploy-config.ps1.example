@@ -1,0 +1,18 @@
+# Copy to deploy-config.ps1 (gitignored) OR let /deploy fill it from a PuTTY session.
+# Do not commit deploy-config.ps1.
+
+# Public clone URL for this website (keep as-is unless the GitHub repo moves).
+$RepoUrl = "https://github.com/martinsladek/www.martinsladek.com.git"
+
+# SCP target: user@host:/absolute/web/root
+# Placeholders only. /deploy replaces them from the chosen PuTTY session
+# (UserName, HostName) as username@hostname:/home/username/www/www.martinsladek.com
+$RemoteSpec = "username@hostname:/home/username/www/www.martinsladek.com"
+
+# Local clone + staging (outside the git repo).
+$WorkRoot = Join-Path $env:LOCALAPPDATA "www.martinsladek.com\www-deploy"
+
+# PuTTY private key. Not OpenSSH (OpenSSH uses ~/.ssh/id_ed25519 without .ppk).
+# Prefer the path stored on a PuTTY session (PublicKeyFile). Fallback if you
+# keep a .ppk next to OpenSSH keys:
+$DeployPpk = Join-Path $env:USERPROFILE ".ssh\id_ed25519.ppk"
