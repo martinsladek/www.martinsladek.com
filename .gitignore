@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Local /deploy PPK path (never commit)
+.cursor/deploy-config.ps1
