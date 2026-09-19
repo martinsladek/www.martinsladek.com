@@ -1,0 +1,34 @@
+# Cloudflare Pages / Netlify style redirects.
+# Mirrors active Redirect / RewriteRule (R=301) lines from .htaccess.
+# Apache production still uses .htaccess; this file is unused until a Pages-style host.
+
+/caller /square/caller 301
+
+/index.exe / 301
+/h4x0r /intro_h4x0r.html 301
+/icons.html /references.html 301
+/icons_cz.html /references_cz.html 301
+/tech.html /technology.html 301
+/tech_cz.html /technology_cz.html 301
+
+/about_cz.html /cz/about.html 301
+/services_cz.html /cz/services.html 301
+/projects_cz.html /cz/projects.html 301
+/technology_cz.html /cz/technology.html 301
+/references_cz.html /cz/projects.html 301
+/personal_cz.html /cz/about.html 301
+/contact_cz.html /cz/contact.html 301
+/sitemap_cz.html / 301
+
+/en/index.html / 301
+/about.html /en/about.html 301
+/services.html /en/services.html 301
+/projects.html /en/projects.html 301
+/technology.html /en/technology.html 301
+/references.html /en/projects.html 301
+/personal.html /en/about.html 301
+/contact.html /en/contact.html 301
+/sitemap.html / 301
+
+/cv/index.html /en/cv.html 301
+/cv/index_cz.html /cz/cv.html 301
