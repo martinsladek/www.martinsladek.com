@@ -1,0 +1,55 @@
+# INACTIVE TEMPLATE — GitHub does not run *.yml.template.
+# To enable later:
+#   1. Prefer a deploy-only SSH user/key (directory-restricted), not your main login.
+#   2. Repo → Settings → Secrets and variables → Actions:
+#        SSH_HOST, SSH_USER, SSH_KEY, REMOTE_PATH
+#      SSH_KEY = full private key PEM text (OpenSSH), never a .ppk, never commit it.
+#      REMOTE_PATH = absolute web root on the server, e.g. /home/deploy-www/www/www.martinsladek.com
+#   3. Rename this file to deploy.yml
+#   4. Push to main (or run the workflow manually)
+#
+# Overwrite-only (no --delete), same spirit as the local /deploy skill.
+
+name: Deploy website
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install SSH key
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY }}
+
+      - name: Add host to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: rsync to web root (overwrite only)
+        env:
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_PATH: ${{ secrets.REMOTE_PATH }}
+        run: |
+          set -euo pipefail
+          # Exclude git metadata and Cursor-only paths. Keep .htaccess.
+          rsync -avz \
+            --exclude '.git/' \
+            --exclude '.cursor/' \
+            --exclude '.github/' \
+            --exclude '.idea/' \
+            --exclude '.gitignore' \
+            --exclude 'AGENTS.md' \
+            --exclude 'README.md' \
+            --exclude '_redirects' \
+            -e ssh \
+            ./ "${SSH_USER}@${SSH_HOST}:${REMOTE_PATH}/"
